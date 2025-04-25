@@ -1,0 +1,93 @@
+
+
+1. Criar o backend usando JSON Server com a tabela utilizadores contendo os campos:
+
+( ) id, email, senha, nome, morada, código postal (cp), país (pais)
+
+2. Header 
+( ) Exibir ícones de Registo e Login se o utilizador não estiver autenticado.
+( ) Exibir ícones de Perfil e Logout se o utilizador estiver autenticado.
+
+3. Pesquisa
+Ao clicar na lupa:
+( ) Mostrar campo de texto ao lado esquerdo da lupa (300px largura, 30px altura, sem borda inicial).
+( ) Focar automaticamente no campo.
+( ) Aplicar borda de 1px #aaa enquanto digitando. 
+( ) Ao clicar fora do campo: Campo deve desaparecer.
+
+4. Login
+( ) Clicar no ícone de login abre uma modal (caixa de diálogo):
+Fundo semi-transparente, sem scroll na página.
+Cursor automaticamente no campo E-mail.
+
+4.1 Validações na modal:
+
+( ) Ambos campos obrigatórios.
+( ) Validar formato de e-mail.
+( ) Mostrar erro se e-mail/senha inválidos ou conta inativa.
+
+4.2 Se login for bem-sucedido:
+
+( ) Trocar ícones (Registo/Login ➔ Perfil/Logout).
+( ) Mostrar mensagem "Boas-vindas" usando o nome do utilizador.
+( ) Salvar id do utilizador no SessionStorage.
+
+5. Logout
+Clicar no ícone de logout:
+( ) Remover ícones de Perfil/Logout.
+( ) Mostrar novamente Registo/Login.
+( ) Limpar a chave da SessionStorage.
+( ) Redirecionar para a página principal.
+
+6. Slider/Carrossel de Oferta Formativa
+Implementar carrossel automático:
+( ) 5 slides (imagens slider1.jpg a slider5.jpg).
+( ) Troca automática a cada 5 segundos. 
+( ) Mostrar textos centrados horizontalmente e verticalmente:
+Título (42px), Subtítulo (35px), Texto (26px).
+Cores especificadas para cada slide. 
+
+6.1. Adaptação para smartphones:
+
+( ) Texto menor.
+( ) Imagem redimensionada.
+
+7. Cookies
+( ) Exibir pop-up de cookies apenas na primeira vez. 
+Ao clicar em "Li e aceito":
+( )Esconder o pop-up.
+
+8. Registo de Utilizador
+( )Clicar no ícone de Registo leva à página registo_utilizador.html. 
+
+Formulário de registo com validações:
+( ) Todos os campos obrigatórios.
+( ) E-mail único (não permitir duplicado).
+( ) Senha forte (mínimo 8 caracteres, 1 maiúscula, 1 minúscula, 1 número e 1 símbolo).
+( ) Confirmação de senha idêntica. 
+
+Após registo:
+
+( ) Exibir modal de confirmação.
+( ) Redirecionar para a Home Page.
+( ) Deixar o utilizador inativo (necessita ativação pelo admin).
+
+9. Perfil do Utilizador
+( ) Ícone de Perfil leva à página perfil.html.
+( ) Mostrar informações do utilizador registado. 
+
+Permitir editar dados (modo de edição):
+
+( ) Alterar informações.
+( ) Alterar senha separadamente.
+( ) Validações semelhantes às do registo.
+( ) Mostrar mensagem de sucesso após salvar.
+
+10. Administração
+( ) Se login de administrador, mostrar ícone adicional (engrenagem).
+
+Página admin_utilizadores.html:
+
+( ) Listar todos os utilizadores com detalhes (nome, e-mail, morada, cp, país, estado).
+( ) Permitir alterar estado (ativo/inativo).
+( ) Permitir definir tipo de utilizador (admin ou utilizador comum).
