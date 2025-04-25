@@ -2,7 +2,7 @@
 
 1. Criar o backend usando JSON Server com a tabela utilizadores contendo os campos:
 
-( ) id, email, senha, nome, morada, código postal (cp), país (pais)
+(X) id, email, senha, nome, morada, código postal (cp), país (pais)
 
 2. Header 
 ( ) Exibir ícones de Registo e Login se o utilizador não estiver autenticado.

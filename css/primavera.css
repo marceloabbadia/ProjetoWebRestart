@@ -1,4 +1,4 @@
-@import url("cssreset.css");
+@import url("/css/cssreset.css");
 
 /* * {
     padding: 0;
@@ -112,7 +112,7 @@ Banner
 
 #banner {
   box-sizing: border-box;
-  background-image: url("./imagens/fundoBanner.jpg");
+  background-image: url("/imagens/fundoBanner.jpg");
   position: relative;
   /* overflow: hidden; */
   padding: 60px 0 0 60px;

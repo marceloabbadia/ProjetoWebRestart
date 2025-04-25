@@ -1,0 +1,13 @@
+{
+  "utilizadores": [
+    {
+      "id": 1,
+      "email": "joao@teste.com",
+      "senha": "SenhaForte@123",
+      "nome": "João Silva",
+      "morada": "Rua das Flores, 123",
+      "cp": "4700-000",
+      "pais": "Portugal"
+    }
+  ]
+}
