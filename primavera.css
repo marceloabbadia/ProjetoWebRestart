@@ -1,0 +1,542 @@
+@import url("cssreset.css");
+
+/* * {
+    padding: 0;
+    margin: 0;
+} */
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+}
+
+h2.seccao {
+  /* font-size: 250%; */
+  font-size: 2.5rem;
+  color: #3c368c;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
+}
+.separador {
+  color: #7d7d7d;
+  background: #7d7d7d;
+  height: 2px;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =====================
+HEADER
+===================== */
+
+header {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+#topHeader {
+  /* height: 80px; */
+  display: flex;
+  justify-content: space-between;
+}
+
+/* #topHeaderIcons {
+    display: flex;
+    column-gap: 20px;
+} */
+#topHeaderIcons a {
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+#topHeaderIcons *:not(:first-of-type) {
+  margin-left: 20px;
+}
+
+#topMenu {
+  margin-top: 20px;
+}
+
+#topMenu a {
+  color: #a4a3a3;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#topMenu a:hover {
+  color: #0075be;
+}
+
+@media (min-width: 800px) and (max-width: 950px) {
+  #topMenu a {
+    /* font-size: 1rem; */
+    /* font-size: normal; */
+    font-size: initial;
+  }
+}
+
+@media (max-width: 799px) {
+  #topMenu li {
+    text-align: center;
+  }
+
+  #topMenu li + li {
+    margin-top: 20px;
+  }
+
+  #topHeaderIcons > :not(:last-child) {
+    display: none;
+  }
+}
+
+@media (min-width: 800px) {
+  #topHeaderIcons > :last-child {
+    display: none;
+  }
+
+  #topMenu {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* =====================
+Banner
+===================== */
+
+#banner {
+  box-sizing: border-box;
+  background-image: url("./imagens/fundoBanner.jpg");
+  position: relative;
+  /* overflow: hidden; */
+  padding: 60px 0 0 60px;
+  /* border-top: 1px solid #000; */
+  margin-bottom: 40px;
+}
+
+#bannerComputador {
+  position: absolute;
+  bottom: -40px;
+  right: 40px;
+}
+
+#banner h1 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#banner h2 {
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+#banner h3 {
+  font-size: 1.25rem;
+  color: white;
+  font-style: italic;
+}
+
+#btSaibaMais {
+  display: inline-block;
+  font-weight: bold;
+  background-color: #f16248;
+  color: #f5f5f5;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 50px;
+}
+
+#btSaibaMais:hover {
+  background-color: #c8c8c8;
+  color: #252525;
+}
+
+@media (max-width: 1100px) {
+  #bannerComputador {
+    display: none;
+  }
+}
+
+@media (max-width: 799px) {
+  #banner {
+    text-align: center;
+    padding-left: 0;
+    height: 320px;
+  }
+  #banner h1 {
+    /* font-size: 40px; */
+    font-size: 2.5rem;
+  }
+  #banner h2 {
+    /* font-size: 24px; */
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  #banner {
+    height: 500px;
+  }
+
+  #banner h1 {
+    /* font-size: 48px; */
+    font-size: 3rem;
+  }
+  #banner h2 {
+    font-size: 1.88rem;
+  }
+}
+
+/* =====================
+Missão
+===================== */
+
+#missao {
+  /* border-bottom: 2px solid #7d7d7d;
+    padding-bottom: 30px; */
+  margin-bottom: 40px;
+}
+#missao h3 {
+  color: #252525;
+  font-weight: bold;
+}
+#missao p {
+  color: #7d7d7d;
+  line-height: 1.4rem;
+  margin: 1rem 0;
+}
+#linkInstitucional {
+  font-size: 1.2rem;
+  color: #0075be;
+  font-weight: bold;
+  text-decoration: none;
+}
+#linkInstitucional:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 799px) {
+  #imagemMissao {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  #missaoTexto {
+    margin: 0 60px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1450px) {
+  #missaoTexto {
+    margin-right: 60px;
+  }
+}
+@media (min-width: 800px) {
+  #imagemMissao {
+    float: left;
+    margin: 0 60px;
+  }
+  #missaoTexto {
+    margin-left: 400px;
+  }
+}
+
+/* =====================
+Equipa
+===================== */
+
+#equipa {
+  margin-bottom: 50px;
+}
+#elementosEquipa img {
+  border-radius: 50%;
+  vertical-align: bottom;
+  transition: all 0.5s;
+}
+
+#elementosEquipa > section {
+  position: relative;
+  width: 300px;
+}
+#elementosEquipa > section:hover > .equipaInfo {
+  /* display: block; */
+  opacity: 1;
+}
+#elementosEquipa > section:hover > img {
+  border-radius: 0;
+}
+.equipaInfo {
+  /* display: none; */
+  opacity: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  transition: all 0.5s;
+}
+.equipaInfo :first-child {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.equipaInfo :last-child {
+  font-size: 1rem;
+}
+
+@media (max-width: 799px) {
+  #elementosEquipa > section {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 800px) {
+  #elementosEquipa {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+  }
+}
+
+/* ==============
+   Oferta formativa
+=================*/
+
+#ofertaFormativa {
+  margin-bottom: 50px;
+}
+#ofertaFormativa img {
+  max-width: 100%;
+  vertical-align: top;
+}
+/* .bx-wrapper {
+    margin-bottom: 0;
+    box-shadow: none;
+    border: none;
+} */
+#slide {
+  position: relative;
+  text-align: center;
+}
+.infoSlide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider h2 {
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+.slider h3 {
+  font-size: 35px;
+  margin-top: 0;
+}
+.slider p {
+  margin-top: 30px;
+  font-size: 26px;
+}
+#slide {
+  color: #153c85;
+}
+#slide h2 {
+  color: #f27d29;
+}
+
+@media only screen and (max-width: 800px) {
+  .slider h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  .slider h3 {
+    font-size: 25px;
+    margin-top: 0;
+  }
+  .slider p {
+    margin-top: 30px;
+    font-size: 16px;
+  }
+}
+
+/* =====================
+Footer
+===================== */
+
+footer {
+  background-color: #ebebeb;
+  padding: 30px 20px;
+  display: grid;
+}
+.footerTitulos {
+  color: #252525;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.footerUL {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footerUL li {
+  margin: 10px 0;
+}
+.footerUL li a {
+  color: #7d7d7d;
+  text-decoration: none;
+}
+.footerUL li a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 800px) {
+  #ofertaFormativa {
+    margin-bottom: 0;
+  }
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+  .colFooter:nth-of-type(3),
+  .colFooter:nth-of-type(4),
+  .colFooter:nth-of-type(5) {
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-width: 800px) and (max-width: 1100px) {
+  footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .colFooter:nth-of-type(4),
+  .colFooter:nth-of-type(5) {
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  footer {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+/* ==============
+   Cookies
+=================*/
+
+#tela {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#secCookies {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000001;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 30px 30px;
+  text-align: center;
+}
+#secCookies span:first-child {
+  color: rgb(170, 170, 170);
+}
+.termos {
+  color: #0075be;
+  text-decoration: none;
+}
+.termos:hover {
+  text-decoration: underline;
+}
+#btLiAceito {
+  display: inline-block;
+  margin-left: 50px;
+  border: 2px solid #f16248;
+  background-color: #f16248;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  padding: 8px 25px 8px 25px;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+}
+#btLiAceito:hover {
+  background-color: #f5f5f5;
+  color: #f16248;
+}
+
+/* ==============
+   Extras
+=================*/
+
+#setaAcima,
+#divTelefone {
+  display: none;
+}
+
+@media only screen and (min-width: 580px) {
+  /* ==============
+    Seta acima
+    =================*/
+
+  #setaAcima {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    display: block;
+  }
+  /* ==============
+    Telefone
+    =================*/
+
+  #divTelefone {
+    position: fixed;
+    right: -160px;
+    top: 200px;
+    background-color: #252525;
+    padding: 20px 30px;
+    color: #0acb84;
+    font-size: 23px;
+    display: block;
+  }
+  #divTelefone img {
+    vertical-align: middle;
+    margin-right: 30px;
+  }
+  #divTelefone:hover {
+    right: 0;
+  }
+}
+
+/* ==============
+    Registo de utilizador
+=================*/
+
+#pag_registo,
+#pag_perfil {
+  padding: 30px;
+}
+
+#pag_registo h1,
+#pag_perfil h1 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
