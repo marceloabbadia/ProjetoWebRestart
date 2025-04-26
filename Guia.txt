@@ -58,19 +58,19 @@ Ao clicar em "Li e aceito":
 ( )Esconder o pop-up.
 
 8. Registo de Utilizador
-( )Clicar no ícone de Registo leva à página registo_utilizador.html. 
+(X)Clicar no ícone de Registo leva à página registo_utilizador.html. 
 
 Formulário de registo com validações:
-( ) Todos os campos obrigatórios.
-( ) E-mail único (não permitir duplicado).
-( ) Senha forte (mínimo 8 caracteres, 1 maiúscula, 1 minúscula, 1 número e 1 símbolo).
-( ) Confirmação de senha idêntica. 
+(X) Todos os campos obrigatórios.
+(X) E-mail único (não permitir duplicado).
+(X) Senha forte (mínimo 8 caracteres, 1 maiúscula, 1 minúscula, 1 número e 1 símbolo).
+(X) Confirmação de senha idêntica. 
 
 Após registo:
 
 ( ) Exibir modal de confirmação.
-( ) Redirecionar para a Home Page.
-( ) Deixar o utilizador inativo (necessita ativação pelo admin).
+(X) Redirecionar para a Home Page.
+(X) Deixar o utilizador inativo (necessita ativação pelo admin).
 
 9. Perfil do Utilizador
 ( ) Ícone de Perfil leva à página perfil.html.

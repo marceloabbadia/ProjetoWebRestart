@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PRIMAVERA Business Software Solutions</title>
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,7 +32,7 @@
     <header>
       <section id="topHeader">
         <a href="https://pt.primaverabss.com/pt/"
-          ><img src="imagens/logotipo.png"
+          ><img src="/imagens/logotipo.png"
         /></a>
 
         <section id="topHeaderIcons">
@@ -61,23 +61,23 @@
     </header>
     <main id="pag_registo">
       <h1>Registo de utilizador</h1>
-      <form>
+      <form id="formRegistro">
         <div class="row g-3 align-items-center mb-3">
           <label for="nome" class="col-form-label col-sm-2">Nome:</label>
           <div class="col-sm-6">
-            <input type="text" id="nome" class="form-control" />
+            <input type="text" id="nome" class="form-control" required />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
           <label for="email" class="col-form-label col-sm-2">E-mail:</label>
           <div class="col-sm-6">
-            <input type="text" id="email" class="form-control" />
+            <input type="text" id="email" class="form-control" required />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
           <label for="morada" class="col-form-label col-sm-2">Morada:</label>
           <div class="col-sm-8">
-            <input type="text" id="morada" class="form-control" />
+            <input type="text" id="morada" class="form-control" required />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
@@ -85,20 +85,25 @@
             >Código Postal:</label
           >
           <div class="col-sm-1">
-            <input type="text" id="cp4" class="form-control" />
+            <input type="text" id="cp4" class="form-control" required />
           </div>
           -
           <div class="col-sm-1">
-            <input type="text" id="cp3" class="form-control" />
+            <input type="text" id="cp3" class="form-control" required />
           </div>
           <div class="col-sm-4">
-            <input type="text" id="cpLocalidade" class="form-control" />
+            <input
+              type="text"
+              id="cpLocalidade"
+              class="form-control"
+              required
+            />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
           <label for="pais" class="col-form-label col-sm-2">País:</label>
           <div class="col-sm-3">
-            <select class="form-select">
+            <select id="pais" class="form-select" required>
               <option value="">-- Seleccione um país --</option>
               <option value="pt">Portugal</option>
               <option value="es">Espanha</option>
@@ -108,7 +113,7 @@
         <div class="row g-3 align-items-center mb-3">
           <label for="senha" class="col-form-label col-sm-2">Senha:</label>
           <div class="col-sm-4">
-            <input type="password" id="senha" class="form-control" />
+            <input type="password" id="senha" class="form-control" required />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
@@ -116,7 +121,12 @@
             >Confirme a senha:</label
           >
           <div class="col-sm-4">
-            <input type="password" id="confirmarSenha" class="form-control" />
+            <input
+              type="password"
+              id="confirmarSenha"
+              class="form-control"
+              required
+            />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
@@ -139,8 +149,10 @@
         <div class="row g-3 align-items-center mb-3 justify-content-end">
           <input
             type="submit"
+            id="btnSubmit"
             value="Efectuar registo"
             class="btn btn-primary col-sm-2"
+            disabled
           />
         </div>
       </form>
@@ -201,5 +213,7 @@
         </ul>
       </section>
     </footer>
+    <script src="/js/registro.js"></script>
+    <script src="/js/senhaForte.js"></script>
   </body>
 </html>
