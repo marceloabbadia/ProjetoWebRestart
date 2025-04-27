@@ -13,7 +13,7 @@ const checkbox = document.querySelector("#confirmo");
 const btn = document.querySelector("#btnSubmit");
 const mensagemSucesso = document.querySelector("#mensagemSucesso");
 
-async function ReadUsersFromFile() {
+async function ReadUsersFromFileEmail() {
   try {
     const response = await fetch("../ficheiro.json");
     const data = await response.json();
@@ -60,7 +60,7 @@ FormRegister.addEventListener("submit", async function (e) {
     return;
   }
 
-  const emails = await ReadUsersFromFile();
+  const emails = await ReadUsersFromFileEmail();
   const emailValue = email.value.trim();
 
   if (emails.includes(emailValue)) {

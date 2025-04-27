@@ -21,3 +21,21 @@ function isStrongPassword(password) {
 
   return true;
 }
+
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Pesquisa Regex:
+
+// Parte	O que faz
+// ^[^\s@]+	- Começa com pelo menos um caractere que não seja espaço ou @
+
+// @	- Deve ter um arroba
+
+// [^\s@]+	- Depois do @, precisa de mais caracteres válidos
+
+// \.	- Depois precisa de um ponto
+
+// [^\s@]+$ - termina com caracteres válidos

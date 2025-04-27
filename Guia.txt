@@ -16,21 +16,21 @@ Ao clicar na lupa:
 ( ) Ao clicar fora do campo: Campo deve desaparecer.
 
 4. Login
-( ) Clicar no ícone de login abre uma modal (caixa de diálogo):
+(X) Clicar no ícone de login abre uma modal (caixa de diálogo):
 Fundo semi-transparente, sem scroll na página.
 Cursor automaticamente no campo E-mail.
 
 4.1 Validações na modal:
 
-( ) Ambos campos obrigatórios.
-( ) Validar formato de e-mail.
-( ) Mostrar erro se e-mail/senha inválidos ou conta inativa.
+(X) Ambos campos obrigatórios.
+(X) Validar formato de e-mail.
+(X) Mostrar erro se e-mail/senha inválidos ou conta inativa.
 
 4.2 Se login for bem-sucedido:
 
 ( ) Trocar ícones (Registo/Login ➔ Perfil/Logout).
 ( ) Mostrar mensagem "Boas-vindas" usando o nome do utilizador.
-( ) Salvar id do utilizador no SessionStorage.
+(X) Salvar id do utilizador no SessionStorage.
 
 5. Logout
 Clicar no ícone de logout:

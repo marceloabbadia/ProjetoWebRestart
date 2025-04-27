@@ -10,6 +10,18 @@
       "pais": "Portugal",
       "funcao": "Admin",
       "status": "Ativa"
+    },
+    {
+      "nome": "Marcelo Abbadia",
+      "email": "marcelo22.abbadia@gmail.com",
+      "morada": "Rua de São Brás, 138",
+      "cp": "073-073",
+      "distrito": "Braga",
+      "pais": "pt",
+      "senha": "123456789Qw@",
+      "funcao": "User",
+      "status": "Inativa",
+      "id": 2
     }
   ]
 }
