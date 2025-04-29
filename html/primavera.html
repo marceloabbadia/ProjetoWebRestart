@@ -24,14 +24,21 @@
   <body>
     <header>
       <section id="topHeader">
-        <a href="https://pt.primaverabss.com/pt/"
+        <!-- <a href="https://pt.primaverabss.com/pt/" -->
+        <a href="http://127.0.0.1:5500/html/primavera.html"
           ><img src="/imagens/logotipo.png"
         /></a>
 
         <section id="topHeaderIcons">
-          <a href="javascript:void(0)"
-            ><i class="fa-solid fa-magnifying-glass" title="Pesquisa"></i
-          ></a>
+          <span id="greeting"></span>
+
+          <div class="search-container">
+            <a href="javascript:void(0)" id="IconSearch">
+              <i class="fa-solid fa-magnifying-glass" title="Pesquisa"></i>
+            </a>
+            <input type="text" id="searchInput" class="search-input" />
+          </div>
+
           <a href="#" id="iconReg"
             ><i class="fa-solid fa-user-plus" title="Registo"></i
           ></a>

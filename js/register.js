@@ -11,17 +11,12 @@ const password = document.querySelector("#senha");
 const validPassword = document.querySelector("#confirmarSenha");
 const checkbox = document.querySelector("#confirmo");
 const btn = document.querySelector("#btnSubmit");
-const mensagemSucesso = document.querySelector("#mensagemSucesso");
 
 async function ReadUsersFromFileEmail() {
   try {
     const response = await fetch("../ficheiro.json");
     const data = await response.json();
-    if (
-      typeof data === "object" &&
-      data !== null &&
-      Array.isArray(data.utilizadores)
-    ) {
+    if (data !== null) {
       const usersArray = data.utilizadores;
       const emails = usersArray.map((user) => user.email);
       return emails;
@@ -36,7 +31,8 @@ async function ReadUsersFromFileEmail() {
 }
 
 if (checkbox) {
-  checkbox.addEventListener("change", function () {
+  checkbox.addEventListener("change", function (e) {
+    e.preventDefault();
     btn.disabled = !checkbox.checked;
   });
 }
@@ -100,9 +96,8 @@ if (FormRegister) {
         const errorMessage = await response.text();
         throw new Error(errorMessage || "Erro ao registrar utilizador!");
       }
-
       window.location.href = "primavera.html";
-      alert("Registo efetuado com sucesso!");
+      alert("Casdatro efetuado com sucesso!");
     } catch (erro) {
       console.error("Erro:", erro);
       btn.disabled = false;

@@ -3,6 +3,21 @@ const BtClose = document.querySelector(".btModalClose");
 const LoginBody = document.querySelector(".modalBody");
 const IconReg = document.querySelector("#iconReg i");
 const IconLog = document.querySelector("#Userlogin i");
+const UserNameGreeting = document.querySelector("#greeting");
+const toggle = document.getElementById("IconSearch");
+const input = document.getElementById("searchInput");
+
+toggle.addEventListener("click", () => {
+  input.classList.add("active");
+  input.focus();
+});
+
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".search-container")) {
+    input.classList.remove("active");
+    input.value = "";
+  }
+});
 
 IconLog.addEventListener("click", function (e) {
   e.preventDefault();
@@ -60,12 +75,7 @@ IconLog.addEventListener("click", function (e) {
       if (logado === true) {
         console.log("Login efetuado com sucesso!");
 
-        IconLog.className = "fa-solid fa-arrow-right-from-bracket";
-        IconLog.setAttribute("title", "Logout");
-
-        IconReg.className = "fa-regular fa-user";
-        IconReg.setAttribute("title", "Perfil");
-
+        updateIcons();
         CloseModal();
       } else {
         showError(logado);
@@ -78,14 +88,15 @@ function UserLogout() {
   Modal.style.display = "none";
   localStorage.removeItem("utilizadorAtivo");
 
+  UserNameGreeting.innerHTML = "";
+
   IconLog.className = "fa-solid fa-arrow-right-to-bracket";
   IconLog.setAttribute("title", "Login");
 
   IconReg.className = "fa-solid fa-user-plus";
   IconReg.setAttribute("title", "Registro");
 
-  // location.reload();
-  alert("Você foi deslogado com sucesso!");
+  window.location.href = "primavera.html";
 }
 
 IconReg.addEventListener("click", function (e) {
@@ -163,12 +174,24 @@ function updateIcons() {
   const UserLog = localStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
+    const user = JSON.parse(UserLog);
+
+    if (UserNameGreeting) {
+      UserNameGreeting.innerHTML = `Bem-vindo(a), ${user.nome}`;
+    }
+  }
+
+  if (UserLog) {
     IconLog.className = "fa-solid fa-arrow-right-from-bracket";
     IconLog.setAttribute("title", "Logout");
 
     IconReg.className = "fa-regular fa-user";
     IconReg.setAttribute("title", "Perfil");
   } else {
+    if (UserNameGreeting) {
+      UserNameGreeting.innerHTML = "";
+    }
+
     IconLog.className = "fa-solid fa-arrow-right-to-bracket";
     IconLog.setAttribute("title", "Login");
 

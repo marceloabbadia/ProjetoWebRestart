@@ -10,10 +10,10 @@
 
 3. Pesquisa
 Ao clicar na lupa:
-( ) Mostrar campo de texto ao lado esquerdo da lupa (300px largura, 30px altura, sem borda inicial).
-( ) Focar automaticamente no campo.
-( ) Aplicar borda de 1px #aaa enquanto digitando. 
-( ) Ao clicar fora do campo: Campo deve desaparecer.
+(X) Mostrar campo de texto ao lado esquerdo da lupa (300px largura, 30px altura, sem borda inicial).
+(X) Focar automaticamente no campo.
+(X) Aplicar borda de 1px #aaa enquanto digitando. 
+(X) Ao clicar fora do campo: Campo deve desaparecer.
 
 4. Login
 (X) Clicar no ícone de login abre uma modal (caixa de diálogo):
@@ -29,15 +29,15 @@ Cursor automaticamente no campo E-mail.
 4.2 Se login for bem-sucedido:
 
 (X) Trocar ícones (Registo/Login ➔ Perfil/Logout).
-( ) Mostrar mensagem "Boas-vindas" usando o nome do utilizador.
+(X) Mostrar mensagem "Boas-vindas" usando o nome do utilizador.
 (X) Salvar id do utilizador no SessionStorage.
 
 5. Logout
 Clicar no ícone de logout:
-( ) Remover ícones de Perfil/Logout.
-( ) Mostrar novamente Registo/Login.
-( ) Limpar a chave da SessionStorage.
-( ) Redirecionar para a página principal.
+(X) Remover ícones de Perfil/Logout.
+(X) Mostrar novamente Registo/Login.
+(X) Limpar a chave da SessionStorage.
+(X) Redirecionar para a página principal.
 
 6. Slider/Carrossel de Oferta Formativa
 Implementar carrossel automático:
@@ -68,12 +68,11 @@ Formulário de registo com validações:
 
 Após registo:
 
-( ) Exibir modal de confirmação.
 (X) Redirecionar para a Home Page.
 (X) Deixar o utilizador inativo (necessita ativação pelo admin).
 
 9. Perfil do Utilizador
-( ) Ícone de Perfil leva à página perfil.html.
+(X) Ícone de Perfil leva à página perfil.html.
 ( ) Mostrar informações do utilizador registado. 
 
 Permitir editar dados (modo de edição):
