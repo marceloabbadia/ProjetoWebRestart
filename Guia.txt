@@ -5,8 +5,8 @@
 (X) id, email, senha, nome, morada, código postal (cp), país (pais)
 
 2. Header 
-( ) Exibir ícones de Registo e Login se o utilizador não estiver autenticado.
-( ) Exibir ícones de Perfil e Logout se o utilizador estiver autenticado.
+(X) Exibir ícones de Registo e Login se o utilizador não estiver autenticado.
+(X) Exibir ícones de Perfil e Logout se o utilizador estiver autenticado.
 
 3. Pesquisa
 Ao clicar na lupa:
@@ -28,7 +28,7 @@ Cursor automaticamente no campo E-mail.
 
 4.2 Se login for bem-sucedido:
 
-( ) Trocar ícones (Registo/Login ➔ Perfil/Logout).
+(X) Trocar ícones (Registo/Login ➔ Perfil/Logout).
 ( ) Mostrar mensagem "Boas-vindas" usando o nome do utilizador.
 (X) Salvar id do utilizador no SessionStorage.
 

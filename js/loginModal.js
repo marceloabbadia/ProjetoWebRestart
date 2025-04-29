@@ -1,18 +1,23 @@
 const Modal = document.querySelector(".modal");
 const BtClose = document.querySelector(".btModalClose");
 const LoginBody = document.querySelector(".modalBody");
-const LoginToUser = document.querySelector("#Userlogin");
+const IconReg = document.querySelector("#iconReg i");
+const IconLog = document.querySelector("#Userlogin i");
 
-LoginToUser.addEventListener("click", function (e) {
+IconLog.addEventListener("click", function (e) {
   e.preventDefault();
+  let UserLog = localStorage.getItem("utilizadorAtivo");
 
-  LoginBody.innerHTML = `
+  if (UserLog) {
+    UserLogout();
+  } else {
+    LoginBody.innerHTML = `
       <h2>Controlo de acessos</h2>
       <p class="errorMessage"></p>
       <form id="loginForm">
         <div class="form-group">
           <label for="loginEmail">E-mail: </label>
-          <input type="email" id="loginEmail" />
+          <input type="text" id="loginEmail" />
         </div>
         <div class="form-group">
           <label for="loginSenha">Senha: </label>
@@ -20,67 +25,103 @@ LoginToUser.addEventListener("click", function (e) {
         </div>
         <button type="submit" class="btn">Validar</button>
       </form>`;
-  Modal.style.display = "flex";
-  document.body.style.overflow = "hidden";
+    Modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
 
-  const EmailLogin = document.querySelector("#loginEmail");
-  const PasswordLogin = document.querySelector("#loginSenha");
-
-  EmailLogin.focus();
-
-  const form = document.getElementById("loginForm");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
+    const EmailLogin = document.querySelector("#loginEmail");
+    const PasswordLogin = document.querySelector("#loginSenha");
     const errorToMessage = document.querySelector(".errorMessage");
 
-    if (EmailLogin.value == "" || PasswordLogin.value == "") {
-      errorToMessage.style.display = "flex";
-      errorToMessage.innerHTML =
-        "Os dois campos são de preenchimento obrigatório!";
-      return;
-    }
+    EmailLogin.focus();
 
-    if (!isValidEmail(EmailLogin.value)) {
-      errorToMessage.style.display = "flex";
-      errorToMessage.innerHTML =
-        "E-mail inválido! Por favor, insira um e-mail válido.";
-      return;
-    }
+    const form = document.getElementById("loginForm");
 
-    errorToMessage.style.display = "none";
-    errorToMessage.innerHTML = "";
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const logado = await ReadUsersFromFileLogin(
-      EmailLogin.value,
-      PasswordLogin.value
-    );
+      errorToMessage.style.display = "none";
+      errorToMessage.innerHTML = "";
 
-    if (logado) {
-      console.log("Login efetuado com sucesso!");
-    } else {
-      errorToMessage.style.display = "flex";
-      errorToMessage.innerHTML = "Email ou senha incorretos. Tente novamente.";
-      return;
-    }
+      if (!EmailLogin.value || !PasswordLogin.value) {
+        showError("Os dois campos são de preenchimento obrigatório!");
+        return;
+      }
 
-    Modal.style.display = "none";
-    LoginBody.innerHTML = "";
-    document.body.style.overflow = "";
-  });
+      if (!isValidEmail(EmailLogin.value)) {
+        showError("E-mail tem um formato incorrecto!");
+        return;
+      }
+
+      const logado = await ReadUsersFromFileLogin(
+        EmailLogin.value,
+        PasswordLogin.value
+      );
+
+      if (logado === true) {
+        console.log("Login efetuado com sucesso!");
+
+        IconLog.className = "fa-solid fa-arrow-right-from-bracket";
+        IconLog.setAttribute("title", "Logout");
+
+        IconReg.className = "fa-regular fa-user";
+        IconReg.setAttribute("title", "Perfil");
+
+        CloseModal();
+      } else {
+        showError(logado);
+      }
+    });
+  }
 });
 
-BtClose.addEventListener("click", function () {
+function UserLogout() {
+  Modal.style.display = "none";
+  localStorage.removeItem("utilizadorAtivo");
+
+  IconLog.className = "fa-solid fa-arrow-right-to-bracket";
+  IconLog.setAttribute("title", "Login");
+
+  IconReg.className = "fa-solid fa-user-plus";
+  IconReg.setAttribute("title", "Registro");
+
+  // location.reload();
+  alert("Você foi deslogado com sucesso!");
+}
+
+IconReg.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  let UserLog = localStorage.getItem("utilizadorAtivo");
+
+  if (UserLog) {
+    window.location.href = "perfil.html";
+  } else {
+    window.location.href = "registo_utilizador.html";
+  }
+});
+
+BtClose.addEventListener("click", CloseModal);
+
+function CloseModal() {
   Modal.style.display = "none";
   LoginBody.innerHTML = "";
   document.body.style.overflow = "";
-});
+}
+
+function showError(message) {
+  const errorToMessage = document.querySelector(".errorMessage");
+  errorToMessage.style.display = "block";
+  errorToMessage.innerHTML = message;
+}
 
 async function ReadUsersFromFileLogin(email, password) {
   try {
     const response = await fetch("../ficheiro.json");
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
+    }
     const data = await response.json();
+
     if (
       typeof data === "object" &&
       data !== null &&
@@ -93,23 +134,55 @@ async function ReadUsersFromFileLogin(email, password) {
       );
 
       if (!validLogin) {
-        return false;
-      } else {
-        localStorage.setItem(
-          "utilizadorAtivo",
-          JSON.stringify({
-            id: validLogin.id,
-            nome: validLogin.nome,
-          })
-        );
-        return true;
+        return "Utilizador Inexistente!";
       }
+
+      if (validLogin.status === "Inativa") {
+        return "Conta não activa!";
+      }
+
+      localStorage.setItem(
+        "utilizadorAtivo",
+        JSON.stringify({
+          id: validLogin.id,
+          nome: validLogin.nome,
+        })
+      );
+      return true;
     } else {
-      console.error("Os dados no arquivo JSON não estão no formato esperado.");
-      return [];
+      console.error("Os dados não estão no formato correcto.");
+      return false;
     }
   } catch (error) {
     console.error("Erro ao ler o arquivo JSON:", error.message);
-    return [];
+    return "Ocorreu um erro ao tentar realizar o login.";
   }
 }
+
+function updateIcons() {
+  const UserLog = localStorage.getItem("utilizadorAtivo");
+
+  if (UserLog) {
+    IconLog.className = "fa-solid fa-arrow-right-from-bracket";
+    IconLog.setAttribute("title", "Logout");
+
+    IconReg.className = "fa-regular fa-user";
+    IconReg.setAttribute("title", "Perfil");
+  } else {
+    IconLog.className = "fa-solid fa-arrow-right-to-bracket";
+    IconLog.setAttribute("title", "Login");
+
+    IconReg.className = "fa-solid fa-user-plus";
+    IconReg.setAttribute("title", "Registro");
+  }
+}
+
+window.addEventListener("storage", function (event) {
+  if (event.key === "utilizadorAtivo") {
+    updateIcons();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  updateIcons();
+});
