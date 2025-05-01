@@ -6,6 +6,7 @@ const IconLog = document.querySelector("#Userlogin i");
 const UserNameGreeting = document.querySelector("#greeting");
 const toggle = document.getElementById("IconSearch");
 const input = document.getElementById("searchInput");
+const TablePerfilLogado = document.querySelector("#perfilLogado");
 
 toggle.addEventListener("click", () => {
   input.classList.add("active");
@@ -205,6 +206,21 @@ window.addEventListener("storage", function (event) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   updateIcons();
+
+  const UserLog = JSON.parse(localStorage.getItem("utilizadorAtivo"));
+  let user = await DataUser(UserLog.id);
+
+  if (user) {
+    TablePerfilLogado.innerHTML = `
+    <tr><td><strong>Nome:</strong></td><td>${user.nome}</td></tr>
+    <tr><td><strong>E-mail:</strong></td><td>${user.email}</td></tr>
+    <tr><td><strong>Morada:</strong></td><td>${user.morada}</td></tr>
+    <tr><td><strong>Código Postal:</strong></td><td>${user.cp} -  ${user.distrito}</td></tr>
+    <tr><td><strong>País:</strong></td><td>${user.pais}</td></tr>
+  `;
+  } else {
+    TablePerfilLogado.innerHTML = `<p style="font-Size:25px; color:Red; padding:10px">Erro ao carregar Utilizador!</p>`;
+  }
 });

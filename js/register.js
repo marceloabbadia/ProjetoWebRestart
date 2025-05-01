@@ -1,4 +1,3 @@
-const urlRegister = "http://localhost:3000/utilizadores";
 const FormRegister = document.querySelector("#formRegistro");
 const fullName = document.querySelector("#nome");
 const email = document.querySelector("#email");

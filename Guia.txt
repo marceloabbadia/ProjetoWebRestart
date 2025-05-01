@@ -73,7 +73,7 @@ Após registo:
 
 9. Perfil do Utilizador
 (X) Ícone de Perfil leva à página perfil.html.
-( ) Mostrar informações do utilizador registado. 
+(X) Mostrar informações do utilizador registado. 
 
 Permitir editar dados (modo de edição):
 

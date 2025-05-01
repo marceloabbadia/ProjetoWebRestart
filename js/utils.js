@@ -1,3 +1,5 @@
+const urlRegister = "http://localhost:3000/utilizadores";
+
 function isStrongPassword(password) {
   if (password.length < 8) {
     return "A senha deve ter no mínimo 8 caracteres.";
@@ -25,6 +27,17 @@ function isStrongPassword(password) {
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
+}
+
+async function DataUser(id) {
+  const response = await fetch(`${urlRegister}/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.json();
 }
 
 // Pesquisa Regex:
