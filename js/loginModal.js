@@ -9,14 +9,13 @@ const input = document.getElementById("searchInput");
 
 toggle.addEventListener("click", () => {
   input.classList.add("active");
+  UserNameGreeting.style.left = "10px";
   input.focus();
 });
 
-document.addEventListener("click", function (e) {
-  if (!e.target.closest(".search-container")) {
-    input.classList.remove("active");
-    input.value = "";
-  }
+input.addEventListener("blur", () => {
+  input.classList.remove("active");
+  UserNameGreeting.style.left = "40px";
 });
 
 IconLog.addEventListener("click", function (e) {
