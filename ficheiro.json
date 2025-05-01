@@ -15,14 +15,14 @@
     {
       "nome": "Marcelo Abbadia",
       "email": "marcelo.abbadia@gmail.com",
+      "senha": "123",
       "morada": "Rua de São Brás, 138",
       "cp": "073-073",
       "distrito": "Braga",
       "pais": "Portugal",
-      "senha": "123456789Qw@",
-      "funcao": "User",
-      "status": "Ativa",
-      "id": 2
+      "id": 2,
+      "funcao": "Admin",
+      "status": "Ativa"
     }
   ]
 }

@@ -77,10 +77,10 @@ Após registo:
 
 Permitir editar dados (modo de edição):
 
-( ) Alterar informações.
+(X) Alterar informações.
 ( ) Alterar senha separadamente.
-( ) Validações semelhantes às do registo.
-( ) Mostrar mensagem de sucesso após salvar.
+(X) Validações semelhantes às do registo.
+(X) Mostrar mensagem de sucesso após salvar.
 
 10. Administração
 ( ) Se login de administrador, mostrar ícone adicional (engrenagem).

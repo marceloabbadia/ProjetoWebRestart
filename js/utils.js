@@ -1,5 +1,33 @@
 const urlRegister = "http://localhost:3000/utilizadores";
 
+function updateIcons() {
+  const UserLog = localStorage.getItem("utilizadorAtivo");
+
+  if (UserLog) {
+    const user = JSON.parse(UserLog);
+
+    if (UserNameGreeting) {
+      UserNameGreeting.innerHTML = `Bem-vindo(a), ${user.nome}`;
+    }
+
+    IconLog.className = "fa-solid fa-arrow-right-from-bracket";
+    IconLog.setAttribute("title", "Logout");
+
+    IconReg.className = "fa-regular fa-user";
+    IconReg.setAttribute("title", "Perfil");
+  } else {
+    if (UserNameGreeting) {
+      UserNameGreeting.innerHTML = "";
+    }
+
+    IconLog.className = "fa-solid fa-arrow-right-to-bracket";
+    IconLog.setAttribute("title", "Login");
+
+    IconReg.className = "fa-solid fa-user-plus";
+    IconReg.setAttribute("title", "Registro");
+  }
+}
+
 function isStrongPassword(password) {
   if (password.length < 8) {
     return "A senha deve ter no mínimo 8 caracteres.";
@@ -29,26 +57,90 @@ function isValidEmail(email) {
   return regex.test(email);
 }
 
-async function DataUser(id) {
-  const response = await fetch(`${urlRegister}/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+async function RegisterUser(newUser) {
+  try {
+    const response = await fetch(urlRegister, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
 
-  return response.json();
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || "Erro ao registrar utilizador!");
+    }
+    window.location.href = "primavera.html";
+    alert("Cadastro efetuado com sucesso!");
+  } catch (erro) {
+    console.error("Erro:", erro);
+    alert("Ocorreu um erro ao tentar registrar o novo utilizador.");
+  }
 }
 
-// Pesquisa Regex:
+async function GetDataUser(id) {
+  try {
+    const response = await fetch(`${urlRegister}/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || "Erro ao retornar o utilizador!");
+    }
+    return response.json();
+  } catch (erro) {
+    console.error("Erro:", erro);
+  }
+}
 
-// Parte	O que faz
-// ^[^\s@]+	- Começa com pelo menos um caractere que não seja espaço ou @
+async function UpdateDataUser(User, id) {
+  try {
+    const response = await fetch(`${urlRegister}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(User),
+    });
 
-// @	- Deve ter um arroba
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || "Erro ao atualizar o utilizador!");
+    }
+    alert("Atualizado com sucesso!");
+  } catch (erro) {
+    console.error("Erro:", erro);
+    alert("Ocorreu um erro ao tentar atualizar o utilizador.");
+  }
+}
 
-// [^\s@]+	- Depois do @, precisa de mais caracteres válidos
+async function ReadUsersFromFileEmail() {
+  try {
+    const response = await fetch("../ficheiro.json");
+    const data = await response.json();
+    if (data !== null && Array.isArray(data.utilizadores)) {
+      return data.utilizadores;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Erro ao ler ficheiro:", error);
+    return [];
+  }
+}
 
-// \.	- Depois precisa de um ponto
+async function isEmailRegistered(emailValue) {
+  let users = await ReadUsersFromFileEmail();
+  let validEmail = users.some((user) => user.email === emailValue);
+  return validEmail;
+}
 
-// [^\s@]+$ - termina com caracteres válidos
+window.addEventListener("storage", function (event) {
+  if (event.key === "utilizadorAtivo") {
+    updateIcons();
+  }
+});

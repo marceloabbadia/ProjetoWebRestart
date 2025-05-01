@@ -756,10 +756,31 @@ th {
   font-weight: bold;
 }
 
-.profileTable > .btn {
+.profileTable .btnEditProfile {
   width: 210px;
   height: 35px;
+  background-color: #0d6efd;
+  color: white;
   border-radius: 5px;
+  border: none;
   margin-bottom: 40px;
-  margin-left: 1150px;
+  margin-left: 1160px;
+  font-size: 16px;
+}
+
+.btnEditProfile:active {
+  transform: scale(0.98) translateY(0.5px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btnSaveProfile {
+  width: 210px;
+  height: 35px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 40px;
+  margin-left: 1160px;
+  font-size: 16px;
 }

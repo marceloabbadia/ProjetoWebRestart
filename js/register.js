@@ -11,33 +11,11 @@ const validPassword = document.querySelector("#confirmarSenha");
 const checkbox = document.querySelector("#confirmo");
 const btn = document.querySelector("#btnSubmit");
 
-async function ReadUsersFromFileEmail() {
-  try {
-    const response = await fetch("../ficheiro.json");
-    const data = await response.json();
-    if (data !== null) {
-      const usersArray = data.utilizadores;
-      const emails = usersArray.map((user) => user.email);
-      return emails;
-    } else {
-      console.error("Os dados no arquivo JSON não estão no formato esperado.");
-      return [];
-    }
-  } catch (error) {
-    console.error("Erro ao ler o arquivo JSON:", error.message);
-    return [];
-  }
-}
-
 if (checkbox) {
   checkbox.addEventListener("change", function (e) {
     e.preventDefault();
     btn.disabled = !checkbox.checked;
   });
-}
-
-function isEmailRegistered(users, emailValue) {
-  return users.some((user) => user.email === emailValue);
 }
 
 if (FormRegister) {
@@ -58,10 +36,10 @@ if (FormRegister) {
       return;
     }
 
-    const emails = await ReadUsersFromFileEmail();
     const emailValue = email.value.trim();
+    const existEmail = await isEmailRegistered(emailValue);
 
-    if (emails.includes(emailValue)) {
+    if (existEmail) {
       alert(
         `O e-mail "${emailValue}" já está cadastrado em nossa base de dados. Por favor, utilize outro endereço de e-mail para realizar o cadastro ou faça login com o e-mail informado.`
       );
@@ -82,25 +60,8 @@ if (FormRegister) {
       status: "Inativa",
     };
 
-    try {
-      const response = await fetch(urlRegister, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      });
+    RegisterUser(newUser);
 
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage || "Erro ao registrar utilizador!");
-      }
-      window.location.href = "primavera.html";
-      alert("Casdatro efetuado com sucesso!");
-    } catch (erro) {
-      console.error("Erro:", erro);
-      btn.disabled = false;
-      alert("Ocorreu um erro ao tentar registrar o utilizador.");
-    }
+    btn.disabled = false;
   });
 }

@@ -1,23 +1,6 @@
 const Modal = document.querySelector(".modal");
 const BtClose = document.querySelector(".btModalClose");
 const LoginBody = document.querySelector(".modalBody");
-const IconReg = document.querySelector("#iconReg i");
-const IconLog = document.querySelector("#Userlogin i");
-const UserNameGreeting = document.querySelector("#greeting");
-const toggle = document.getElementById("IconSearch");
-const input = document.getElementById("searchInput");
-const TablePerfilLogado = document.querySelector("#perfilLogado");
-
-toggle.addEventListener("click", () => {
-  input.classList.add("active");
-  UserNameGreeting.style.left = "10px";
-  input.focus();
-});
-
-input.addEventListener("blur", () => {
-  input.classList.remove("active");
-  UserNameGreeting.style.left = "40px";
-});
 
 IconLog.addEventListener("click", function (e) {
   e.preventDefault();
@@ -49,7 +32,7 @@ IconLog.addEventListener("click", function (e) {
 
     EmailLogin.focus();
 
-    const form = document.getElementById("loginForm");
+    const form = document.querySelector("#loginForm");
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -84,45 +67,27 @@ IconLog.addEventListener("click", function (e) {
   }
 });
 
-function UserLogout() {
-  Modal.style.display = "none";
-  localStorage.removeItem("utilizadorAtivo");
-
-  UserNameGreeting.innerHTML = "";
-
-  IconLog.className = "fa-solid fa-arrow-right-to-bracket";
-  IconLog.setAttribute("title", "Login");
-
-  IconReg.className = "fa-solid fa-user-plus";
-  IconReg.setAttribute("title", "Registro");
-
-  window.location.href = "primavera.html";
-}
-
-IconReg.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  let UserLog = localStorage.getItem("utilizadorAtivo");
-
-  if (UserLog) {
-    window.location.href = "perfil.html";
-  } else {
-    window.location.href = "registo_utilizador.html";
-  }
-});
-
-BtClose.addEventListener("click", CloseModal);
-
 function CloseModal() {
   Modal.style.display = "none";
   LoginBody.innerHTML = "";
   document.body.style.overflow = "";
 }
 
+BtClose.addEventListener("click", CloseModal);
+
 function showError(message) {
   const errorToMessage = document.querySelector(".errorMessage");
   errorToMessage.style.display = "block";
   errorToMessage.innerHTML = message;
+}
+
+function UserLogout() {
+  updateIcons();
+
+  Modal.style.display = "none";
+  localStorage.removeItem("utilizadorAtivo");
+
+  window.location.href = "primavera.html";
 }
 
 async function ReadUsersFromFileLogin(email, password) {
@@ -133,11 +98,7 @@ async function ReadUsersFromFileLogin(email, password) {
     }
     const data = await response.json();
 
-    if (
-      typeof data === "object" &&
-      data !== null &&
-      Array.isArray(data.utilizadores)
-    ) {
+    if (data !== null) {
       const usersArray = data.utilizadores;
 
       const validLogin = usersArray.find(
@@ -169,58 +130,3 @@ async function ReadUsersFromFileLogin(email, password) {
     return "Ocorreu um erro ao tentar realizar o login.";
   }
 }
-
-function updateIcons() {
-  const UserLog = localStorage.getItem("utilizadorAtivo");
-
-  if (UserLog) {
-    const user = JSON.parse(UserLog);
-
-    if (UserNameGreeting) {
-      UserNameGreeting.innerHTML = `Bem-vindo(a), ${user.nome}`;
-    }
-  }
-
-  if (UserLog) {
-    IconLog.className = "fa-solid fa-arrow-right-from-bracket";
-    IconLog.setAttribute("title", "Logout");
-
-    IconReg.className = "fa-regular fa-user";
-    IconReg.setAttribute("title", "Perfil");
-  } else {
-    if (UserNameGreeting) {
-      UserNameGreeting.innerHTML = "";
-    }
-
-    IconLog.className = "fa-solid fa-arrow-right-to-bracket";
-    IconLog.setAttribute("title", "Login");
-
-    IconReg.className = "fa-solid fa-user-plus";
-    IconReg.setAttribute("title", "Registro");
-  }
-}
-
-window.addEventListener("storage", function (event) {
-  if (event.key === "utilizadorAtivo") {
-    updateIcons();
-  }
-});
-
-document.addEventListener("DOMContentLoaded", async function () {
-  updateIcons();
-
-  const UserLog = JSON.parse(localStorage.getItem("utilizadorAtivo"));
-  let user = await DataUser(UserLog.id);
-
-  if (user) {
-    TablePerfilLogado.innerHTML = `
-    <tr><td><strong>Nome:</strong></td><td>${user.nome}</td></tr>
-    <tr><td><strong>E-mail:</strong></td><td>${user.email}</td></tr>
-    <tr><td><strong>Morada:</strong></td><td>${user.morada}</td></tr>
-    <tr><td><strong>Código Postal:</strong></td><td>${user.cp} -  ${user.distrito}</td></tr>
-    <tr><td><strong>País:</strong></td><td>${user.pais}</td></tr>
-  `;
-  } else {
-    TablePerfilLogado.innerHTML = `<p style="font-Size:25px; color:Red; padding:10px">Erro ao carregar Utilizador!</p>`;
-  }
-});

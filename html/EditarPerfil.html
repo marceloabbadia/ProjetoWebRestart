@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PRIMAVERA Business Software Solutions</title>
-    <link rel="shortcut icon" href="/imagens/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/imagens/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -66,98 +65,97 @@
         </ul>
       </nav>
     </header>
+
     <main id="pag_registo">
-      <h1>Registo de utilizador</h1>
-      <form id="formRegistro">
+      <h1 class="profileTable">Perfil</h1>
+      <form id="editFormRegistro">
         <div class="row g-3 align-items-center mb-3">
-          <label for="nome" class="col-form-label col-sm-2">Nome:</label>
+          <label for="nomeEdit" class="col-form-label col-sm-2">Nome:</label>
           <div class="col-sm-6">
-            <input type="text" id="nome" class="form-control" required />
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3">
-          <label for="email" class="col-form-label col-sm-2">E-mail:</label>
-          <div class="col-sm-6">
-            <input type="text" id="email" class="form-control" required />
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3">
-          <label for="morada" class="col-form-label col-sm-2">Morada:</label>
-          <div class="col-sm-8">
-            <input type="text" id="morada" class="form-control" required />
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3">
-          <label for="cp4" class="col-form-label col-sm-2"
-            >Código Postal:</label
-          >
-          <div class="col-sm-1">
-            <input type="text" id="cp4" class="form-control" required />
-          </div>
-          -
-          <div class="col-sm-1">
-            <input type="text" id="cp3" class="form-control" required />
-          </div>
-          <div class="col-sm-4">
             <input
               type="text"
-              id="cpLocalidade"
+              id="nomeEdit"
+              value=""
               class="form-control"
               required
             />
           </div>
         </div>
         <div class="row g-3 align-items-center mb-3">
-          <label for="pais" class="col-form-label col-sm-2">País:</label>
+          <label for="emailEdit" class="col-form-label col-sm-2">E-mail:</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              id="emailEdit"
+              value=""
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <label for="moradaEdit" class="col-form-label col-sm-2"
+            >Morada:</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              id="moradaEdit"
+              class="form-control"
+              value=""
+              required
+            />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <label for="cp4Edit" class="col-form-label col-sm-2"
+            >Código Postal:</label
+          >
+          <div class="col-sm-1">
+            <input
+              type="text"
+              id="cp4Edit"
+              value=""
+              class="form-control"
+              required
+            />
+          </div>
+          -
+          <div class="col-sm-1">
+            <input
+              type="text"
+              id="cp3Edit"
+              value=""
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="col-sm-4">
+            <input
+              type="text"
+              id="cpLocalidadeEdit"
+              class="form-control"
+              value=""
+              required
+            />
+          </div>
+        </div>
+        <div class="row g-3 align-items-center mb-3">
+          <label for="paisEdit" class="col-form-label col-sm-2">País:</label>
           <div class="col-sm-3">
-            <select id="pais" class="form-select" required>
+            <select id="paisEdit" class="form-select" required>
               <option value="">-- Seleccione um país --</option>
               <option value="Portugal">Portugal</option>
               <option value="Espanha">Espanha</option>
             </select>
           </div>
         </div>
-        <div class="row g-3 align-items-center mb-3">
-          <label for="senha" class="col-form-label col-sm-2">Senha:</label>
-          <div class="col-sm-4">
-            <input type="password" id="senha" class="form-control" required />
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3">
-          <label for="confirmarSenha" class="col-form-label col-sm-2"
-            >Confirme a senha:</label
-          >
-          <div class="col-sm-4">
-            <input
-              type="password"
-              id="confirmarSenha"
-              class="form-control"
-              required
-            />
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3">
-          <!-- <div class="form-check"> -->
-          <div class="col-sm-2 text-sm-end">
-            <input class="form-check-input" type="checkbox" id="confirmo" />
-          </div>
-          <div class="col-sm-4">
-            <label class="form-check-label" for="confirmo">
-              Li e aceito os termos e condições
-            </label>
-          </div>
-        </div>
-        <div class="row g-3 align-items-center mb-3 justify-content-end">
-          <input
-            type="submit"
-            id="btnSubmit"
-            value="Efectuar registo"
-            class="btn btn-primary col-sm-2"
-            disabled
-          />
-        </div>
+        <button type="submit" class="btnSaveProfile" id="SaveProfile">
+          Guardar alteraçoes
+        </button>
       </form>
     </main>
+
     <footer>
       <section class="colFooter">
         <p class="footerTitulos">PRIMAVERA</p>
@@ -214,9 +212,26 @@
         </ul>
       </section>
     </footer>
+    <section id="divTelefone">
+      <img src="/imagens/telefone.png" /> 919 204 462
+    </section>
+    <a href="#" id="setaAcima"><img src="/imagens/setacima.png" /></a>
+    <!-- <section id="tela">
+      <section id="secCookies">
+        <span
+          >Este website utiliza cookies para melhorar a sua experiência de
+          navegação. Para continuar a navegar, deve ler e aceitar os
+          <a class="termos" href="#">Termos e Condições</a>.</span
+        ><span
+          ><a id="btLiAceito" href="javascript:void(0)"
+            >Li e aceito &gt;</a
+          ></span
+        >
+      </section>
+    </section> -->
 
     <section class="modal">
-      <section class="registerPage">
+      <section class="perfilPage">
         <span class="btModalClose">X</span>
         <div class="modalBody"></div>
       </section>
@@ -226,6 +241,7 @@
     <script src="../js/head.js" defer></script>
     <script src="../js/loginModal.js" defer></script>
     <script src="../js/perfil.js" defer></script>
+    <script src="../js/editarPerfil.js"></script>
     <script src="../js/register.js" defer></script>
   </body>
 </html>
