@@ -12,18 +12,22 @@ IconLog.addEventListener("click", function (e) {
   } else {
     LoginBody.innerHTML = `
       <h2>Controlo de acessos</h2>
-      <p class="errorMessage"></p>
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="loginEmail">E-mail: </label>
-          <input type="text" id="loginEmail" />
-        </div>
-        <div class="form-group">
-          <label for="loginSenha">Senha: </label>
-          <input type="password" id="loginSenha" />
-        </div>
-        <button type="submit" class="btn">Validar</button>
-      </form>`;
+<p class="errorMessage"></p>
+
+<form id="loginForm">
+  <div class="modal-form-group">
+    <label for="loginEmail">E-mail:</label>
+    <input type="text" id="loginEmail" class="modal-input" />
+  </div>
+
+  <div class="modal-form-group">
+    <label for="loginSenha">Senha:</label>
+    <input type="password" id="loginSenha" class="modal-input" />
+  </div>
+
+  <button type="submit" class="modal-submit">Validar</button>
+</form>
+`;
     Modal.style.display = "flex";
     document.body.style.overflow = "hidden";
 

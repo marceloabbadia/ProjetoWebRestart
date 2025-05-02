@@ -18,6 +18,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/primavera.css" />
   </head>
 
@@ -116,6 +123,7 @@
           </p>
         </section>
       </section>
+
       <hr class="separador" />
       <section id="equipa">
         <h2 class="seccao">Equipa</h2>
@@ -144,20 +152,75 @@
         </section>
       </section>
       <hr class="separador" />
+
       <section id="ofertaFormativa">
         <h2 class="seccao">Oferta formativa</h2>
-        <section class="slider">
-          <div id="slide">
-            <img src="/imagens/slider1.jpg" />
-            <div class="infoSlide">
-              <div class="info">
-                <h2>PRIMAVERA Academy</h2>
-                <h3>Juntos seremos mais fortes!</h3>
-                <p>Aposte em novas competências</p>
+
+        <div
+          id="carouselFormativo"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="5000"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/imagens/slider1.jpg" class="d-block w-100" />
+              <div class="infoSlide">
+                <div class="info">
+                  <h2>PRIMAVERA Academy</h2>
+                  <h3>Juntos seremos mais fortes!</h3>
+                  <p>Aposte em novas competências</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="/imagens/slider2.jpg" class="d-block w-100" />
+              <div class="infoSlide">
+                <div class="info">
+                  <h2>Online Seminar</h2>
+                  <h3>Legislação Laboral de A a Z</h3>
+                  <p>Atualize os seus conhecimentos</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="/imagens/slider3.jpg" class="d-block w-100" />
+              <div class="infoSlide">
+                <div class="info">
+                  <h2>RE_Start</h2>
+                  <h3>CODE Learning Academy</h3>
+                  <p>
+                    Juntos desenvolvemos o teu percurso de sucesso como
+                    Developer
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="/imagens/slider4.jpg" class="d-block w-100" />
+              <div class="infoSlide">
+                <div class="info">
+                  <h2>Marketing Digital</h2>
+                  <h3>Aproveite Desconto 20%</h3>
+                  <p>Virtual Classroom (Online)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="/imagens/slider5.jpg" class="d-block w-100" />
+              <div class="infoSlide">
+                <div class="info">
+                  <h2>Programa SCORE</h2>
+                  <h3>Online | Virtual Classroom</h3>
+                  <p>Certifique-se como Profissional PRIMAVERA</p>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </main>
     <footer>
@@ -219,6 +282,7 @@
     <section id="divTelefone">
       <img src="/imagens/telefone.png" /> 919 204 462
     </section>
+
     <a href="#" id="setaAcima"><img src="/imagens/setacima.png" /></a>
     <section id="tela">
       <section id="secCookies">
@@ -235,7 +299,7 @@
     </section>
 
     <section class="modal">
-      <section class="firstPage">
+      <section class="modal-content-box">
         <span class="btModalClose">X</span>
         <div class="modalBody"></div>
       </section>
@@ -246,5 +310,6 @@
     <script src="../js/loginModal.js" defer></script>
     <script src="../js/perfil.js" defer></script>
     <script src="../js/register.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

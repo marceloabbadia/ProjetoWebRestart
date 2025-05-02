@@ -41,16 +41,16 @@ Clicar no ícone de logout:
 
 6. Slider/Carrossel de Oferta Formativa
 Implementar carrossel automático:
-( ) 5 slides (imagens slider1.jpg a slider5.jpg).
-( ) Troca automática a cada 5 segundos. 
-( ) Mostrar textos centrados horizontalmente e verticalmente:
-Título (42px), Subtítulo (35px), Texto (26px).
-Cores especificadas para cada slide. 
+(X) 5 slides (imagens slider1.jpg a slider5.jpg).
+(X) Troca automática a cada 5 segundos. 
+(X) Mostrar textos centrados horizontalmente e verticalmente:
+(X)Título (42px), Subtítulo (35px), Texto (26px).
+(X)Cores especificadas para cada slide. 
 
 6.1. Adaptação para smartphones:
 
-( ) Texto menor.
-( ) Imagem redimensionada.
+(X) Texto menor.
+(X) Imagem redimensionada.
 
 7. Cookies
 (X) Exibir pop-up de cookies apenas na primeira vez. 

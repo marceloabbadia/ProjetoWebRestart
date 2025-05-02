@@ -321,47 +321,103 @@ Equipa
 
 #ofertaFormativa {
   margin-bottom: 50px;
+  position: relative;
 }
+
 #ofertaFormativa img {
   max-width: 100%;
   vertical-align: top;
 }
-/* .bx-wrapper {
-    margin-bottom: 0;
-    box-shadow: none;
-    border: none;
-} */
-#slide {
+
+.carousel-inner {
   position: relative;
-  text-align: center;
 }
+
 .infoSlide {
   position: absolute;
-  left: 0;
   top: 0;
-  height: 100%;
+  left: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
-.slider h2 {
+
+.infoSlide .info h2 {
   font-size: 42px;
+  font-weight: bold;
   margin-bottom: 5px;
 }
-.slider h3 {
+
+.infoSlide .info h3 {
   font-size: 35px;
-  margin-top: 0;
+  font-weight: bold;
+  margin: 0;
 }
-.slider p {
+
+.infoSlide .info p {
   margin-top: 30px;
   font-size: 26px;
 }
-#slide {
+
+/* Slide 1 */
+.carousel-item:nth-child(1) .info h2 {
+  color: #f27d29;
+}
+.carousel-item:nth-child(1) .info h3,
+.carousel-item:nth-child(1) .info p {
   color: #153c85;
 }
-#slide h2 {
-  color: #f27d29;
+
+/* Slide 2 */
+.carousel-item:nth-child(2) .info h2 {
+  color: #153c85;
+}
+.carousel-item:nth-child(2) .info h3,
+.carousel-item:nth-child(2) .info p {
+  color: #fff;
+}
+
+/* Slide 3 */
+.carousel-item:nth-child(3) .info h2 {
+  color: #ebc711;
+}
+.carousel-item:nth-child(3) .info h3,
+.carousel-item:nth-child(3) .info p {
+  color: #fff;
+}
+
+/* Slide 4 */
+.carousel-item:nth-child(4) .info h2 {
+  color: #153c85;
+}
+.carousel-item:nth-child(4) .info h3,
+.carousel-item:nth-child(4) .info p {
+  color: #fff;
+}
+
+/* Slide 5 */
+.carousel-item:nth-child(5) .info h2 {
+  color: #ff701e;
+}
+.carousel-item:nth-child(5) .info h3,
+.carousel-item:nth-child(5) .info p {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .infoSlide .info h2 {
+    font-size: 26px;
+  }
+  .infoSlide .info h3 {
+    font-size: 22px;
+  }
+  .infoSlide .info p {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -550,143 +606,85 @@ footer {
 
 .modal {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.9);
   display: none;
   justify-content: center;
   align-items: center;
 }
 
-.modal .form-group {
-  padding: 0.5em;
-  font-size: 1.2em;
+.modal .modal-content-box {
+  background-color: #f7f7f7;
+  padding: 30px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.368);
 }
 
-.modal .firstPage input {
-  padding: 8px;
-  border-radius: 4px;
-  width: 300px;
-  height: 12px;
-}
-
-.modal .registerPage input {
-  padding: 8px;
-  border-radius: 4px;
-  width: 318px;
-  height: 32px;
-}
-
-.modal .firstPage h2 {
+.modal h2 {
   font-size: 25px;
   font-weight: bold;
-  padding: 16px 18px 32px 32px;
+  padding: 10px 0px 32px 0px;
 }
 
-.modal .registerPage h2 {
-  font-size: 25px;
-  font-weight: bold;
-  padding: 16px 18px 32px 32px;
+.modal-form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
-.modal > .firstPage {
+.modal-form-group label {
+  width: 100px;
+  font-size: 16px;
+  margin-right: -40px;
+}
+
+.modal-input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 16px;
+  color: #212529;
   background-color: #fff;
-  padding: 10px;
-  width: 430px;
-  height: 230px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #a79898;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.modal > .registerPage {
-  background-color: #fff;
-  padding: 10px;
-  width: 450px;
-  height: 250px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.modal .firstPage .btn {
+.modal-submit {
   display: block;
-  margin-top: 5px;
-  margin-left: 305px;
+  margin-left: auto;
   background-color: #0d6efd;
   color: white;
   font-size: 16px;
   border-radius: 5px;
-  box-shadow: none;
-  border: #0d6efd;
-  padding: 8px 18px 5px 18px;
-}
-
-.modal .registerPage .btn {
-  display: block;
-  margin-top: 5px;
-  margin-left: 305px;
-  background-color: #0d6efd;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  box-shadow: none;
-  border: #0d6efd;
-  padding: 8px 18px 5px 18px;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.modal .btn:active {
-  transform: scale(0.98) translateY(0.5px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.modal .firstPage .errorMessage {
-  position: absolute;
-  display: none;
-  color: red;
-  top: 65px;
-  font-size: 16px;
-  margin-left: 32px;
-  justify-content: left;
-}
-
-.modal .registerPage .errorMessage {
-  position: absolute;
-  display: none;
-  color: red;
-  top: 65px;
-  font-size: 16px;
-  margin-left: 32px;
-  justify-content: left;
-}
-
-.modal #loginForm {
-  padding-left: 20px;
-}
-
-.modal .firstPage .btModalClose {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 22px;
-  height: 20px;
-  background-color: #fff;
-  border: 4px solid #807e7e;
-  border-radius: 50%;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 23px;
-  text-align: center;
-  color: #000000;
+  border: 1px solid #0d6efd;
+  padding: 10px 20px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: background-color 0.15s ease-in-out;
 }
 
-.modal .registerPage .btModalClose {
+.modal-submit:active {
+  transform: scale(0.98);
+}
+
+.modal-submit:hover {
+  background-color: #0b5ed7;
+}
+
+.modal .errorMessage {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.modal .btModalClose {
   position: absolute;
   top: -12px;
   right: -12px;
   width: 27px;
-  height: 27px;
+  height: 29px;
   background-color: #fff;
   border: 4px solid #807e7e;
   border-radius: 50%;
@@ -700,7 +698,7 @@ footer {
   transition: transform 0.1s, box-shadow 0.1s;
 }
 
-.btModalClose:active {
+.modal .btModalClose:active {
   transform: translateY(1px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
