@@ -6,6 +6,35 @@ const IconLog = document.querySelector("#Userlogin i");
 const IconLogAdm = document.querySelector("#iconLogAdm i");
 const SectionAdm = document.querySelector(".topHeaderIconAdm");
 
+document.addEventListener("DOMContentLoaded", function () {
+  const screen = document.querySelector("#tela");
+  const btnAgree = document.querySelector("#btLiAceito");
+
+  const UserLog = sessionStorage.getItem("utilizadorAtivo");
+  let userAgree = null;
+
+  if (UserLog) {
+    const user = JSON.parse(UserLog);
+    userAgree = localStorage.getItem(`aceitouCookies_${user.id}`);
+  }
+
+  if (!userAgree) {
+    screen.style.display = "block";
+  } else {
+    screen.style.display = "none";
+  }
+
+  if (btnAgree) {
+    btnAgree.addEventListener("click", function () {
+      if (UserLog) {
+        const user = JSON.parse(UserLog);
+        localStorage.setItem(`aceitouCookies_${user.id}`, "true");
+      }
+      screen.style.display = "none";
+    });
+  }
+});
+
 toggle.addEventListener("click", () => {
   input.classList.add("active");
   UserNameGreeting.style.left = "10px";
@@ -34,34 +63,5 @@ IconLogAdm.addEventListener("click", function (e) {
 
   if (IconLogAdm) {
     window.location.href = "adm.html";
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const screen = document.querySelector("#tela");
-  const btnAgree = document.querySelector("#btLiAceito");
-
-  const UserLog = sessionStorage.getItem("utilizadorAtivo");
-  let userAgree = null;
-
-  if (UserLog) {
-    const user = JSON.parse(UserLog);
-    userAgree = localStorage.getItem(`aceitouCookies_${user.id}`);
-  }
-
-  if (!userAgree) {
-    screen.style.display = "block";
-  } else {
-    screen.style.display = "none";
-  }
-
-  if (btnAgree) {
-    btnAgree.addEventListener("click", function () {
-      if (UserLog) {
-        const user = JSON.parse(UserLog);
-        localStorage.setItem(`aceitouCookies_${user.id}`, "true");
-      }
-      screen.style.display = "none";
-    });
   }
 });

@@ -7,8 +7,10 @@ const zipCode3Edit = document.querySelector("#cp3Edit");
 const zipCode4Edit = document.querySelector("#cp4Edit");
 const zipCodeLocalEdit = document.querySelector("#cpLocalidadeEdit");
 const countryEdit = document.querySelector("#paisEdit");
+const alertBox = document.querySelector("#customAlert");
+const closeBtn = document.querySelector(".close-alert");
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", async function (e) {
   updateIcons();
 
   const UserLog = sessionStorage.getItem("utilizadorAtivo");
@@ -69,6 +71,21 @@ if (EditFormRegister) {
       pais: countryEdit.value,
     };
 
-    await UpdateDataUser(updateUserData, UserLogStorage.id);
+    let result = await UpdateDataUser(updateUserData, UserLogStorage.id);
+    if (result) {
+      showCustomAlert();
+      window.location.href = "perfil.html";
+    }
   });
 }
+
+function showCustomAlert() {
+  alertBox.classList.remove("hidden");
+  setTimeout(() => {
+    alertBox.classList.add("hidden");
+  }, 10000);
+}
+
+closeBtn.addEventListener("click", () => {
+  alertBox.classList.add("hidden");
+});

@@ -4,6 +4,9 @@ const BtnSaveEditPasswordProfile = document.querySelector(
 const EditFormPasswordRegister = document.querySelector(
   "#editFormPasswordRegistro"
 );
+const alertBoxPass = document.querySelector("#customAlert");
+const closeBtnPass = document.querySelector(".close-alert");
+
 const newPassword = document.querySelector("#passwordNew");
 const oldPassword = document.querySelector("#passwordOld");
 const confirmPassword = document.querySelector("#passwordConfirm");
@@ -47,7 +50,23 @@ if (EditFormPasswordRegister) {
         senha: codePassword,
       };
 
-      await UpdateDataUser(updateUserPasswordData, user.id);
+      let result = await UpdateDataUser(updateUserPasswordData, user.id);
+
+      if (result) {
+        showCustomAlert();
+        window.location.href = "perfil.html";
+      }
     }
   });
 }
+
+function showCustomAlert() {
+  alertBoxPass.classList.remove("hidden");
+  setTimeout(() => {
+    alertBoxPass.classList.add("hidden");
+  }, 10000);
+}
+
+closeBtnPass.addEventListener("click", () => {
+  alertBox.classList.add("hidden");
+});

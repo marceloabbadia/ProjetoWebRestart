@@ -3,10 +3,10 @@
     {
       "id": 1,
       "email": "admin@admin.com",
-      "senha": "MTIz",
+      "senha": "MTExMTExMTFRcUA=",
       "nome": "Administrador",
-      "morada": "Rua das Flores, 123",
-      "cp": "4700-000",
+      "morada": "Rua das Flores, 12",
+      "cp": "4700-9900",
       "distrito": "Braga",
       "pais": "Portugal",
       "funcao": "Admin",
@@ -15,11 +15,11 @@
     {
       "nome": "Marcelo Abbadia",
       "email": "marcelo.abbadia@gmail.com2",
-      "morada": "Rua de São Brás, 138",
+      "morada": "Rua de São Brás, 13800",
       "cp": "073-073",
       "distrito": "Braga",
       "pais": "Portugal",
-      "senha": "MTIz",
+      "senha": "MTExMTExMTFRcUA=",
       "funcao": "User",
       "status": "Ativa",
       "id": 2

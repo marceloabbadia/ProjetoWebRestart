@@ -135,7 +135,7 @@ async function UpdateDataUser(User, id) {
       const errorMessage = await response.text();
       throw new Error(errorMessage || "Erro ao atualizar o utilizador!");
     }
-    alert("Atualizado com sucesso!");
+    return response.ok;
   } catch (erro) {
     console.error("Erro:", erro);
     alert("Ocorreu um erro ao tentar atualizar o utilizador.");
