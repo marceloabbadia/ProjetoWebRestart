@@ -78,15 +78,15 @@ Após registo:
 Permitir editar dados (modo de edição):
 
 (X) Alterar informações.
-( ) Alterar senha separadamente.
+(X) Alterar senha separadamente.
 (X) Validações semelhantes às do registo.
 (X) Mostrar mensagem de sucesso após salvar.
 
 10. Administração
-( ) Se login de administrador, mostrar ícone adicional (engrenagem).
+(X) Se login de administrador, mostrar ícone adicional (engrenagem).
 
 Página admin_utilizadores.html:
 
-( ) Listar todos os utilizadores com detalhes (nome, e-mail, morada, cp, país, estado).
-( ) Permitir alterar estado (ativo/inativo).
-( ) Permitir definir tipo de utilizador (admin ou utilizador comum).
+(X) Listar todos os utilizadores com detalhes (nome, e-mail, morada, cp, país, estado).
+(X) Permitir alterar estado (ativo/inativo).
+(X) Permitir definir tipo de utilizador (admin ou utilizador comum).

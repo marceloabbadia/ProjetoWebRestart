@@ -3,6 +3,8 @@ const toggle = document.querySelector("#IconSearch");
 const input = document.querySelector("#searchInput");
 const IconReg = document.querySelector("#iconReg i");
 const IconLog = document.querySelector("#Userlogin i");
+const IconLogAdm = document.querySelector("#iconLogAdm i");
+const SectionAdm = document.querySelector(".topHeaderIconAdm");
 
 toggle.addEventListener("click", () => {
   input.classList.add("active");
@@ -24,5 +26,13 @@ IconReg.addEventListener("click", function (e) {
     window.location.href = "perfil.html";
   } else {
     window.location.href = "registo_utilizador.html";
+  }
+});
+
+IconLogAdm.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (IconLogAdm) {
+    window.location.href = "adm.html";
   }
 });

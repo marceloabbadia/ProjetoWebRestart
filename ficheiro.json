@@ -14,7 +14,7 @@
     },
     {
       "nome": "Marcelo Abbadia",
-      "email": "marcelo.abbadia@gmail.com",
+      "email": "marcelo.abbadia@gmail.com2",
       "morada": "Rua de São Brás, 138",
       "cp": "073-073",
       "distrito": "Braga",
@@ -23,6 +23,18 @@
       "funcao": "User",
       "status": "Ativa",
       "id": 2
+    },
+    {
+      "nome": "Marcelo Abbadiaaaaaa",
+      "email": "marcelo.abbadia@gmail.com",
+      "morada": "Rua de São Brás, 138",
+      "cp": "073-073",
+      "distrito": "Braga",
+      "pais": "Portugal",
+      "senha": "MTExMTExMTFRcUA=",
+      "funcao": "Admin",
+      "status": "Inativa",
+      "id": 3
     }
   ]
 }

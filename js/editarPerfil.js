@@ -33,7 +33,11 @@ if (EditFormRegister) {
   EditFormRegister.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    if (!UserLog) return;
+    const UserLog = sessionStorage.getItem("utilizadorAtivo");
+
+    if (!UserLog) {
+      return;
+    }
 
     const newEmail = emailEdit.value.trim();
 

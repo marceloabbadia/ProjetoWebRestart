@@ -10,6 +10,12 @@ function updateIcons() {
       UserNameGreeting.innerHTML = `Bem-vindo(a), ${user.nome}`;
     }
 
+    if (user.funcao === "Admin") {
+      SectionAdm.style.display = "flex";
+    } else {
+      SectionAdm.style.display = "none";
+    }
+
     IconLog.className = "fa-solid fa-arrow-right-from-bracket";
     IconLog.setAttribute("title", "Logout");
 
@@ -82,6 +88,24 @@ async function RegisterUser(newUser) {
 async function GetDataUser(id) {
   try {
     const response = await fetch(`${urlRegister}/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || "Erro ao retornar dados do utilizador!");
+    }
+    return response.json();
+  } catch (erro) {
+    console.error("Erro:", erro);
+  }
+}
+
+async function GetAllDataUsers() {
+  try {
+    const response = await fetch(urlRegister, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

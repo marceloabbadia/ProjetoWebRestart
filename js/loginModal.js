@@ -124,6 +124,7 @@ async function ReadUsersFromFileLogin(email, password) {
         "utilizadorAtivo",
         JSON.stringify({
           id: validUser.id,
+          funcao: validUser.funcao,
           nome: validUser.nome,
         })
       );
