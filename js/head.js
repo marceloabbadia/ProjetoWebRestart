@@ -18,7 +18,7 @@ input.addEventListener("blur", () => {
 IconReg.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let UserLog = localStorage.getItem("utilizadorAtivo");
+  let UserLog = sessionStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
     window.location.href = "perfil.html";

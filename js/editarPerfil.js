@@ -11,7 +11,7 @@ const countryEdit = document.querySelector("#paisEdit");
 document.addEventListener("DOMContentLoaded", async function () {
   updateIcons();
 
-  const UserLog = localStorage.getItem("utilizadorAtivo");
+  const UserLog = sessionStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
     const UserLogStorage = JSON.parse(UserLog);
@@ -33,7 +33,6 @@ if (EditFormRegister) {
   EditFormRegister.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const UserLog = localStorage.getItem("utilizadorAtivo");
     if (!UserLog) return;
 
     const newEmail = emailEdit.value.trim();

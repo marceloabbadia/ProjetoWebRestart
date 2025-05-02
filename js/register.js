@@ -48,6 +48,9 @@ if (FormRegister) {
 
     btn.disabled = true;
 
+    //btoa() (binary to ASCII) converte uma string em Base64
+    let passwordCode = btoa(password.value);
+
     let newUser = {
       nome: fullName.value,
       email: email.value,
@@ -55,7 +58,7 @@ if (FormRegister) {
       cp: zipCode3.value + "-" + zipCode4.value,
       distrito: zipCodeLocal.value,
       pais: country.value,
-      senha: password.value,
+      senha: passwordCode,
       funcao: "User",
       status: "Inativa",
     };

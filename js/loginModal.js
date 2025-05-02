@@ -4,7 +4,8 @@ const LoginBody = document.querySelector(".modalBody");
 
 IconLog.addEventListener("click", function (e) {
   e.preventDefault();
-  let UserLog = localStorage.getItem("utilizadorAtivo");
+
+  let UserLog = sessionStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
     UserLogout();
@@ -60,6 +61,7 @@ IconLog.addEventListener("click", function (e) {
 
         updateIcons();
         CloseModal();
+        window.location.href = "primavera.html";
       } else {
         showError(logado);
       }
@@ -85,7 +87,7 @@ function UserLogout() {
   updateIcons();
 
   Modal.style.display = "none";
-  localStorage.removeItem("utilizadorAtivo");
+  sessionStorage.removeItem("utilizadorAtivo");
 
   window.location.href = "primavera.html";
 }
@@ -101,33 +103,31 @@ async function ReadUsersFromFileLogin(email, password) {
     if (data !== null) {
       const usersArray = data.utilizadores;
 
-      const validLogin = usersArray.find(
-        (user) => user.email === email && user.senha === password
-      );
+      const validUser = usersArray.find((user) => user.email === email);
 
-      if (!validLogin) {
+      if (!validUser) {
         return "Utilizador Inexistente!";
       }
 
-      if (validLogin.status === "Inativa") {
+      //atob() (ASCII to binary) faz o inverso de btoa() — decodifica uma string em Base64 de volta ao seu valor original.
+      let passwordDecode = atob(validUser.senha);
+
+      if (passwordDecode !== password) {
+        return "Palavra-passe incorreta!";
+      }
+
+      if (validUser.status === "Inativa") {
         return "Conta não activa!";
       }
 
-      // sessionStorage.setItem(
-      //   "utilizadorAtivo2",
-      //   JSON.stringify({
-      //     id: validLogin.id,
-      //     nome: validLogin.nome,
-      //   })
-      // );
-
-      localStorage.setItem(
+      sessionStorage.setItem(
         "utilizadorAtivo",
         JSON.stringify({
-          id: validLogin.id,
-          nome: validLogin.nome,
+          id: validUser.id,
+          nome: validUser.nome,
         })
       );
+
       return true;
     } else {
       console.error("Os dados não estão no formato correcto.");

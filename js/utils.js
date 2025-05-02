@@ -1,7 +1,7 @@
 const urlRegister = "http://localhost:3000/utilizadores";
 
 function updateIcons() {
-  const UserLog = localStorage.getItem("utilizadorAtivo");
+  const UserLog = sessionStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
     const user = JSON.parse(UserLog);
@@ -89,7 +89,7 @@ async function GetDataUser(id) {
     });
     if (!response.ok) {
       const errorMessage = await response.text();
-      throw new Error(errorMessage || "Erro ao retornar o utilizador!");
+      throw new Error(errorMessage || "Erro ao retornar dados do utilizador!");
     }
     return response.json();
   } catch (erro) {
@@ -138,9 +138,3 @@ async function isEmailRegistered(emailValue) {
   let validEmail = users.some((user) => user.email === emailValue);
   return validEmail;
 }
-
-window.addEventListener("storage", function (event) {
-  if (event.key === "utilizadorAtivo") {
-    updateIcons();
-  }
-});

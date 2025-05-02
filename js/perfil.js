@@ -5,7 +5,7 @@ const BtnEditPasswordProfile = document.querySelector("#editPasswordProfile");
 document.addEventListener("DOMContentLoaded", async function () {
   updateIcons();
 
-  const UserLog = localStorage.getItem("utilizadorAtivo");
+  let UserLog = sessionStorage.getItem("utilizadorAtivo");
 
   if (UserLog) {
     const UserLogStorage = JSON.parse(UserLog);

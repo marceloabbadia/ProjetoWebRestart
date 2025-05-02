@@ -17,21 +17,20 @@ if (EditFormPasswordRegister) {
       return;
     }
 
-    const UserLog = localStorage.getItem("utilizadorAtivo");
+    const UserLog = sessionStorage.getItem("utilizadorAtivo");
 
     if (UserLog) {
       const UserLogStorage = JSON.parse(UserLog);
       let user = await GetDataUser(UserLogStorage.id);
 
-      console.log(user.senha);
-      console.log(newPassword.value);
+      //atob() (ASCII to binary) faz o inverso de btoa() — decodifica uma string em Base64 de volta ao seu valor original.
+      let passwordDecode = atob(user.senha);
 
-      if (oldPassword.value !== user.senha) {
-        return alert("Senha antiga invalida!");
+      if (passwordDecode !== oldPassword.value) {
+        alert("Palavra-passe incorreta!");
       }
 
       const passwordValidation = isStrongPassword(newPassword.value);
-      console.log(passwordValidation);
 
       if (passwordValidation !== true) {
         alert(passwordValidation);
@@ -42,8 +41,10 @@ if (EditFormPasswordRegister) {
         return alert("Senha e confirmação de senha não são iguais!");
       }
 
+      let codePassword = btoa(newPassword.value);
+
       let updateUserPasswordData = {
-        senha: newPassword.value,
+        senha: codePassword,
       };
 
       await UpdateDataUser(updateUserPasswordData, user.id);
