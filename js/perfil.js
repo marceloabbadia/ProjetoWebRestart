@@ -1,5 +1,6 @@
 const TableLogProfile = document.querySelector("#profileLog");
 const BtnEditProfile = document.querySelector("#editProfile");
+const BtnEditPasswordProfile = document.querySelector("#editPasswordProfile");
 
 document.addEventListener("DOMContentLoaded", async function () {
   updateIcons();
@@ -27,5 +28,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 if (BtnEditProfile) {
   BtnEditProfile.addEventListener("click", function () {
     window.location.href = "EditarPerfil.html";
+  });
+}
+
+if (BtnEditPasswordProfile) {
+  BtnEditPasswordProfile.addEventListener("click", function () {
+    window.location.href = "EditarSenha.html";
   });
 }

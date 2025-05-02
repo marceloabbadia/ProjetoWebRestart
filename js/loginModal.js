@@ -113,6 +113,14 @@ async function ReadUsersFromFileLogin(email, password) {
         return "Conta não activa!";
       }
 
+      // sessionStorage.setItem(
+      //   "utilizadorAtivo2",
+      //   JSON.stringify({
+      //     id: validLogin.id,
+      //     nome: validLogin.nome,
+      //   })
+      // );
+
       localStorage.setItem(
         "utilizadorAtivo",
         JSON.stringify({

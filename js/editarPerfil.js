@@ -29,41 +29,43 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
-EditFormRegister.addEventListener("submit", async function (e) {
-  e.preventDefault();
+if (EditFormRegister) {
+  EditFormRegister.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const UserLog = localStorage.getItem("utilizadorAtivo");
-  if (!UserLog) return;
+    const UserLog = localStorage.getItem("utilizadorAtivo");
+    if (!UserLog) return;
 
-  const newEmail = emailEdit.value.trim();
+    const newEmail = emailEdit.value.trim();
 
-  if (!isValidEmail(newEmail)) {
-    alert("E-mail inválido.");
-    return;
-  }
-
-  const UserLogStorage = JSON.parse(UserLog);
-  const userFromDB = await GetDataUser(UserLogStorage.id);
-  if (!userFromDB) return;
-
-  const oldEmail = userFromDB.email.trim();
-
-  if (newEmail !== oldEmail) {
-    const existEmail = await isEmailRegistered(newEmail);
-    if (existEmail) {
-      alert("Este e-mail já está registrado. Use outro.");
+    if (!isValidEmail(newEmail)) {
+      alert("E-mail inválido.");
       return;
     }
-  }
 
-  const updateUserData = {
-    nome: fullNameEdit.value,
-    email: newEmail,
-    morada: addressEdit.value,
-    cp: zipCode3Edit.value + "-" + zipCode4Edit.value,
-    distrito: zipCodeLocalEdit.value,
-    pais: countryEdit.value,
-  };
+    const UserLogStorage = JSON.parse(UserLog);
+    const userFromDB = await GetDataUser(UserLogStorage.id);
+    if (!userFromDB) return;
 
-  await UpdateDataUser(updateUserData, UserLogStorage.id);
-});
+    const oldEmail = userFromDB.email.trim();
+
+    if (newEmail !== oldEmail) {
+      const existEmail = await isEmailRegistered(newEmail);
+      if (existEmail) {
+        alert("Este e-mail já está registrado. Use outro.");
+        return;
+      }
+    }
+
+    const updateUserData = {
+      nome: fullNameEdit.value,
+      email: newEmail,
+      morada: addressEdit.value,
+      cp: zipCode3Edit.value + "-" + zipCode4Edit.value,
+      distrito: zipCodeLocalEdit.value,
+      pais: countryEdit.value,
+    };
+
+    await UpdateDataUser(updateUserData, UserLogStorage.id);
+  });
+}
