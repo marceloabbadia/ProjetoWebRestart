@@ -53,9 +53,9 @@ Cores especificadas para cada slide.
 ( ) Imagem redimensionada.
 
 7. Cookies
-( ) Exibir pop-up de cookies apenas na primeira vez. 
+(X) Exibir pop-up de cookies apenas na primeira vez. 
 Ao clicar em "Li e aceito":
-( )Esconder o pop-up.
+(X)Esconder o pop-up.
 
 8. Registo de Utilizador
 (X)Clicar no ícone de Registo leva à página registo_utilizador.html. 

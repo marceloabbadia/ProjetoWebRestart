@@ -113,7 +113,7 @@ async function ReadUsersFromFileLogin(email, password) {
       let passwordDecode = atob(validUser.senha);
 
       if (passwordDecode !== password) {
-        return "Palavra-passe incorreta!";
+        return "Utilizador inexistente!";
       }
 
       if (validUser.status === "Inativa") {
