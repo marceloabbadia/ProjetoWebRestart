@@ -6,7 +6,6 @@ const EditFormPasswordRegister = document.querySelector(
 );
 const alertBoxPass = document.querySelector("#customAlert");
 const closeBtnPass = document.querySelector(".close-alert");
-
 const newPassword = document.querySelector("#passwordNew");
 const oldPassword = document.querySelector("#passwordOld");
 const confirmPassword = document.querySelector("#passwordConfirm");

@@ -624,7 +624,7 @@ footer {
 .modal h2 {
   font-size: 25px;
   font-weight: bold;
-  padding: 10px 0px 32px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .modal-form-group {
@@ -676,7 +676,7 @@ footer {
   display: none;
   color: red;
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .modal .btModalClose {

@@ -51,7 +51,7 @@ IconLog.addEventListener("click", function (e) {
       }
 
       if (!isValidEmail(EmailLogin.value)) {
-        showError("E-mail tem um formato incorrecto!");
+        showError("O e-mail tem um formato incorrecto!");
         return;
       }
 
